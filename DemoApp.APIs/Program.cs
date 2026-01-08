@@ -1,5 +1,7 @@
 
 using DemoApp.APIs;
+using DemoApp.APIs.Repositoires;
+using DemoApp.APIs.Services;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -8,6 +10,12 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
+
+
+
+//Icustomerrepo repo = new custoemrresotitu();  //
+builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
+builder.Services.AddScoped<ICustomerService, CustomerService>();
 
 
 builder.Services.AddDbContext<MisardTestDBContext>(
